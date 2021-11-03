@@ -1,46 +1,39 @@
-//Module for rendering HTML for form
+//Module for rendering form HTML
 
-import { getPenPals, getTopics } from "./dataAccess.js"
+import {postLetter } from "./dataAccess.js"
+import { authorSelect, recipientSelect, topicRadioButton } from "./FormFields.js"
 
-//functions for each select and radiobutton component
+//event listener for button click
+document.addEventListener("click", click => {
+    if (click.target.id === "sendButton"){
+        //post the created letter object (below) to API
+        console.log("Button clicked")
+        postLetter(createLetterObject())
+    }
+})
 
-const authorSelect = () => {
-    const penPals = getPenPals()
-    return `
-    <select id="author">
-        <option value="0">Choose author...</option>
-        ${penPals.map(
-            (author) => {
-            return `<option value="${author.id}">${author.name}</option>`
-        }
-        ).join("")
-        }
-    </select>
-`
-}
-const topicRadioButton = () => {
-    const topics = getTopics()
-    return topics.map((topic) => {
-        return `<li class="topic">
-        <input type="radio" name="topicChoice" value="${topic.id}"/> ${topic.category}
-        </li>`
-    }).join("")
-}
-const recipientSelect = () => {
-    const penPals = getPenPals()
-    return `
-    <select id="recipient">
-        <option value="0">Choose recipient...</option>
-        ${penPals.map((recipient) => {
-                return `<option value="${recipient.id}">${recipient.name}</option>`
-            }).join("")
-        }
-    </select>
-    `
+//captures user input and creates new letter object
+const createLetterObject = () => {
+    //capture current value of all input fields
+    const authorInput = document.querySelector("#author").value
+    const recipientInput = document.querySelector("#recipient").value
+    const topicInput = document.querySelector("input[name='topicChoice']:checked").value
+    const textInput = document.querySelector("input[name='letterBody']").value
+    const dateInput = new Date()
+
+    //add the captured values to key-value pairs in an object
+    const letterObj = {
+        authorId: parseInt(authorInput),
+        recipientId: parseInt(recipientInput),
+        topicId: parseInt(topicInput),
+        textBody: textInput,
+        dateSent: dateInput.toLocaleDateString()
+    }
+
+    return letterObj
 }
 
-//render form HTML using interpolated functions
-
+//renders form HTML using interpolated formFields functions
 export const Form = () => {
 
     return `

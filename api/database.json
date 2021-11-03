@@ -1,42 +1,42 @@
 {
-    "penPals": [
-        {
-            "id": 1,
-            "name": "Cynthia",
-            "email": "cynthia@email.com"
-        },
-        {
-            "id": 2,
-            "name": "Jared",
-            "email": "jared@email.com"
-        },
-        {
-            "id": 3,
-            "name": "Bob",
-            "email": "bob@email.com"
-        }
-    ],
-    "topics": [
-        {
-            "id": 1,
-            "category": "Business"
-        },
-        {
-            "id": 2,
-            "category": "Friendly"
-        },
-        {
-            "id": 3,
-            "category": "Family"
-        },
-        {
-            "id": 4,
-            "category": "Condolences"
-        },
-        {
-            "id": 5,
-            "category": "Congratulations"
-        }
-    ],
-    "letters": []
+  "penPals": [
+    {
+      "id": 1,
+      "name": "Cynthia",
+      "email": "cynthia@email.com"
+    },
+    {
+      "id": 2,
+      "name": "Jared",
+      "email": "jared@email.com"
+    },
+    {
+      "id": 3,
+      "name": "Bob",
+      "email": "bob@email.com"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "category": "Business"
+    },
+    {
+      "id": 2,
+      "category": "Friendly"
+    },
+    {
+      "id": 3,
+      "category": "Family"
+    },
+    {
+      "id": 4,
+      "category": "Condolences"
+    },
+    {
+      "id": 5,
+      "category": "Congratulations"
+    }
+  ],
+  "letters": []
 }

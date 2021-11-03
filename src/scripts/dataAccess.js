@@ -36,11 +36,15 @@ export const fetchData = () => {
 export const postLetter = (letterObj) => {
     const fetchOptions = {
         method: "POST",
-        headers: {"Content-Type": "application/json"},
+        headers: {
+            "Content-Type": "application/json"
+        },
         body: JSON.stringify(letterObj)
     }
 
     return fetch(`${API}/letters`, fetchOptions)
         .then(response => response.json())
-        .then(() => container.dispatchEvent(new CustomEvent("stateChanged")))
+        .then(() => {
+            container.dispatchEvent(new CustomEvent("stateChanged"))
+        })
 }

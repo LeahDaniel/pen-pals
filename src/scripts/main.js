@@ -11,7 +11,7 @@ const render = () => {
 
 render()
 
-document.addEventListener("stateChanged", event => {
+container.addEventListener("stateChanged", event => {
     console.log("State changed. Re-rendering HTML...")
     render()
 })
