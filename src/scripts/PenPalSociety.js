@@ -9,8 +9,8 @@ export const PenPalSociety = () => {
         <article class="form">
         ${Form()}
         </article>
-        <article class="letters">
-            <h3>Letters</h3>
+        <article class="letterArticle">
+            <h2>Letters</h2>
             ${Letters()}
         </article>
     `

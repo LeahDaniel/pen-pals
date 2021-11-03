@@ -2,17 +2,17 @@
   "penPals": [
     {
       "id": 1,
-      "name": "Cynthia",
+      "name": "Cynthia Smith",
       "email": "cynthia@email.com"
     },
     {
       "id": 2,
-      "name": "Jared",
+      "name": "Jared Jacobs",
       "email": "jared@email.com"
     },
     {
       "id": 3,
-      "name": "Bob",
+      "name": "Bob Brown",
       "email": "bob@email.com"
     }
   ],
@@ -38,5 +38,96 @@
       "category": "Congratulations"
     }
   ],
-  "letters": []
+  "letters": [
+    {
+      "authorId": 1,
+      "recipientId": 3,
+      "textBody": "Hello! This is a letter from Cynthia to Bob with topics business, friendly, family.",
+      "dateSent": "11/3/2021",
+      "id": 1
+    },
+    {
+      "authorId": 2,
+      "recipientId": 1,
+      "textBody": "Hello! This is a letter from Jared to Cynthia with topics congrats, condolences",
+      "dateSent": "11/3/2021",
+      "id": 2
+    },
+    {
+      "authorId": 3,
+      "recipientId": 2,
+      "textBody": "Hello! This is a letter from Bob to Jared with topics friendly, congrats",
+      "dateSent": "11/3/2021",
+      "id": 3
+    },
+    {
+      "authorId": 1,
+      "recipientId": 3,
+      "textBody": "You wouldn't believe how much has happened lately- I'm exhausted. I got a new job, got married, and lost my grandfather. I'm glad to have a great friend like you. \n\nHow is your sister? Tell her congrats from me for her award!",
+      "dateSent": "11/3/2021",
+      "id": 4
+    }
+  ],
+  "letterTopics": [
+    {
+      "letterId": 1,
+      "topicId": 1,
+      "id": 1
+    },
+    {
+      "letterId": 1,
+      "topicId": 3,
+      "id": 2
+    },
+    {
+      "letterId": 1,
+      "topicId": 2,
+      "id": 3
+    },
+    {
+      "letterId": 2,
+      "topicId": 4,
+      "id": 4
+    },
+    {
+      "letterId": 2,
+      "topicId": 5,
+      "id": 5
+    },
+    {
+      "letterId": 3,
+      "topicId": 3,
+      "id": 6
+    },
+    {
+      "letterId": 3,
+      "topicId": 5,
+      "id": 7
+    },
+    {
+      "letterId": 4,
+      "topicId": 1,
+      "id": 8
+    },
+    {
+      "letterId": 4,
+      "topicId": 2,
+      "id": 9
+    },
+    {
+      "letterId": 4,
+      "topicId": 3,
+      "id": 10
+    },
+    {
+      "letterId": 4,
+      "topicId": 4,
+      "id": 11
+    },
+    {
+      "letterId": 4,
+      "topicId": 5,
+      "id": 12
+    }
+  ]
 }

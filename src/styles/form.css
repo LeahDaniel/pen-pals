@@ -1,0 +1,22 @@
+.field {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 0;
+}
+
+.topicCheckboxes {
+    display: flex;
+    flex-direction: row;
+}
+
+.topic {
+    margin: 0 4px
+}
+
+.label{
+    margin-bottom: 8px;
+}
+
+#author, #recipient {
+    padding: 4px;
+}

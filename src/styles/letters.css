@@ -1,0 +1,32 @@
+.letterArticle {
+    margin-top: 40px
+}
+
+.letters{
+    display: flex;
+    flex-direction: column-reverse;
+}
+.letter {
+    background-color: #acd9e2;
+    margin-bottom: 10px;
+    padding: 30px 30px 30px 60px
+}
+
+.letter__dateTag{
+    font-size: small;
+}
+
+.letter__topicTags {
+    display: flex;
+    flex-direction: row;
+}
+
+.letter__topic {
+    background-color: lightgoldenrodyellow;
+    margin: 5px 10px 5px 0;
+    padding: 5px;
+    border-radius: 15px;
+    border: rgb(216, 187, 91) .2px solid;
+    font-size: small;
+    filter: drop-shadow(3px 2px 2px rgb(60, 52, 24));
+}
