@@ -66,6 +66,13 @@
       "textBody": "You wouldn't believe how much has happened lately- I'm exhausted. I got a new job, got married, and lost my grandfather. I'm glad to have a great friend like you. \n\nHow is your sister? Tell her congrats from me for her award!",
       "dateSent": "11/3/2021",
       "id": 4
+    },
+    {
+      "authorId": 2,
+      "recipientId": 1,
+      "textBody": "Letter testing topics of business, family, condolences.",
+      "dateSent": "11/7/2021",
+      "id": 5
     }
   ],
   "letterTopics": [
@@ -128,6 +135,21 @@
       "letterId": 4,
       "topicId": 5,
       "id": 12
+    },
+    {
+      "letterId": 5,
+      "topicId": 1,
+      "id": 13
+    },
+    {
+      "letterId": 5,
+      "topicId": 3,
+      "id": 14
+    },
+    {
+      "letterId": 5,
+      "topicId": 4,
+      "id": 15
     }
   ]
 }

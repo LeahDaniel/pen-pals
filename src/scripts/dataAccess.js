@@ -1,3 +1,5 @@
+import { getCheckedBoxes } from "./Form.js"
+
 const database = {
     penPals: [],
     topics: [],
@@ -10,16 +12,16 @@ const container = document.querySelector(".container")
 
 //copies of state
 export const getPenPals = () => {
-    return database.penPals.map(penPal => ({...penPal}))
+    return database.penPals.map(penPal => ({ ...penPal }))
 }
 export const getTopics = () => {
-    return database.topics.map(topic => ({...topic}))
+    return database.topics.map(topic => ({ ...topic }))
 }
 export const getLetters = () => {
-    return database.letters.map(letter => ({...letter}))
+    return database.letters.map(letter => ({ ...letter }))
 }
 export const getLetterTopics = () => {
-    return database.letterTopics.map(letterTopic => ({...letterTopic}))
+    return database.letterTopics.map(letterTopic => ({ ...letterTopic }))
 }
 
 //fetch all API data
@@ -38,6 +40,11 @@ export const fetchData = () => {
         .then(letterAPI => database.letters = letterAPI)
 }
 
+
+
+
+
+
 //add a letter object to the letters and letterTopics API using POST, then use custom event to 
 //fetch data again and re-render HTML
 export const postLetter = (letterObj) => {
@@ -51,6 +58,20 @@ export const postLetter = (letterObj) => {
 
     return fetch(`${API}/letters`, fetchOptions)
         .then(response => response.json())
+        .then(newLetterObj => {
+            if (getCheckedBoxes()) {
+                //iterate through the array of chosen topic IDs and for each, create a new letterTopics object 
+                getCheckedBoxes().map((checkedTopicId) => {
+                    const newLetterObject = {
+                        letterId: newLetterObj.id,
+                        topicId: checkedTopicId
+                    }
+
+                    //use postLetterObject on each new created object
+                    postLetterTopic(newLetterObject)
+                })
+            }
+        })
         .then(() => {
             container.dispatchEvent(new CustomEvent("stateChanged"))
         })

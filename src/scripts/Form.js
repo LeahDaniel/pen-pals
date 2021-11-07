@@ -1,6 +1,6 @@
 //Module for rendering form HTML
 
-import {getLetters, postLetter, postLetterTopic} from "./dataAccess.js"
+import {postLetter} from "./dataAccess.js"
 import { authorSelect, recipientSelect, topicCheckboxes } from "./FormFields.js"
 
 //event listener for button click
@@ -9,9 +9,10 @@ document.addEventListener("click", click => {
         //post the created letter object (below) to API
         console.log("Button clicked")
         postLetter(createLetterObject())
-        createAndPostLetterTopicObject()
-    }
-})
+        // createAndPostLetterTopicObject()}
+    }  
+})               
+
 
 //captures user input and creates new letter object
 const createLetterObject = () => {
@@ -33,39 +34,19 @@ const createLetterObject = () => {
     return letterObj
 }
 //captures user input and creates new letterTopic object, then posts to API
-const createAndPostLetterTopicObject = () => {
-    const letters = getLetters()
+export const getCheckedBoxes = () => {
     //capture the values of each topic selected and push to an array
-    const getCheckedBoxes = () => {
-        const checkboxes = document.getElementsByName("topicCheckbox")
-        let checkedArray = []
+    const checkboxes = document.getElementsByName("topicCheckbox")
+    let checkedArray = []
 
-        for (const checkbox of checkboxes) {
-            if (checkbox.checked) {
-            checkedArray.push(parseInt(checkbox.value))
-            }
-        }
-        if (checkedArray.length > 0) {
-            return checkedArray
+    for (const checkbox of checkboxes) {
+        if (checkbox.checked) {
+        checkedArray.push(parseInt(checkbox.value))
         }
     }
-    const checkedArray = getCheckedBoxes()
-
-    //iterate through the array and for each, create a new letterTopics object 
-    checkedArray.map((checkedTopicId) => {
-        //!add a letterId based on the last id of the letters array- is there a better way to do this?
-        let newLetterId = 1
-        if(letters.length > 0) {
-            newLetterId = letters[letters.length -1].id + 1
-        }
-        const newLetterObject = {
-            letterId: newLetterId,
-            topicId: checkedTopicId
-        }
-
-        //use postLetterObject on each new created object
-        postLetterTopic(newLetterObject)
-    })
+    if (checkedArray.length > 0) {
+        return checkedArray
+    }
 }
 
 
