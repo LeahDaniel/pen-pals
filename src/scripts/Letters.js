@@ -10,6 +10,8 @@ const letterData = (letter) => {
     const letterTopics = getLetterTopics()
 
     //find topic categories, author, and recipient for appropriate letter
+    const foundAuthor = penPals.find(author => author.id === letter.authorId)
+    const foundRecipient = penPals.find(recipient => recipient.id === letter.recipientId)
     const foundTopics = () => {
         let foundTopicsArr = []
         //iterate through letterTopics to find all of the applicable objects using letterId
@@ -25,8 +27,6 @@ const letterData = (letter) => {
         }
         return foundTopicsArr
     }
-    const foundAuthor = penPals.find(author => author.id === letter.authorId)
-    const foundRecipient = penPals.find(recipient => recipient.id === letter.recipientId)
 
     //if any finds are falsy, return an empty string. else, return html for the letter
     if (!foundAuthor || !foundRecipient || foundTopics().length === 0) {

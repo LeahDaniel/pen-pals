@@ -1,4 +1,4 @@
-import { getCheckedBoxes } from "./Form.js"
+import { getCheckedIds } from "./Form.js"
 
 const database = {
     penPals: [],
@@ -25,26 +25,29 @@ export const getLetterTopics = () => {
 }
 
 //fetch all API data
-export const fetchData = () => {
-    fetch(`${API}/penPals`)
-        .then(response => response.json())
-        .then(penPalAPI => database.penPals = penPalAPI)
-    fetch(`${API}/topics`)
-        .then(response => response.json())
-        .then(topicAPI => database.topics = topicAPI)
-    fetch(`${API}/letterTopics`)
-        .then(response => response.json())
-        .then(letterTopicAPI => database.letterTopics = letterTopicAPI)
+export const fetchLetters = () => {
     return fetch(`${API}/letters`)
         .then(response => response.json())
         .then(letterAPI => database.letters = letterAPI)
 }
 
+export const fetchPenPals = () => {
+    return fetch(`${API}/penPals`)
+        .then(response => response.json())
+        .then(penPalAPI => database.penPals = penPalAPI)
+}
 
+export const fetchTopics = () => {
+    return fetch(`${API}/topics`)
+        .then(response => response.json())
+        .then(topicAPI => database.topics = topicAPI)
+}
 
-
-
-
+export const fetchLetterTopics= () => {
+    return fetch(`${API}/letterTopics`)
+        .then(response => response.json())
+        .then(letterTopicAPI => database.letterTopics = letterTopicAPI)
+}
 //add a letter object to the letters and letterTopics API using POST, then use custom event to 
 //fetch data again and re-render HTML
 export const postLetter = (letterObj) => {
@@ -59,9 +62,9 @@ export const postLetter = (letterObj) => {
     return fetch(`${API}/letters`, fetchOptions)
         .then(response => response.json())
         .then(newLetterObj => {
-            if (getCheckedBoxes()) {
+            if (getCheckedIds()) {
                 //iterate through the array of chosen topic IDs and for each, create a new letterTopics object 
-                getCheckedBoxes().map((checkedTopicId) => {
+                getCheckedIds().map((checkedTopicId) => {
                     const newLetterObject = {
                         letterId: newLetterObj.id,
                         topicId: checkedTopicId

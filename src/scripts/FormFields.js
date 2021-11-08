@@ -16,14 +16,7 @@ export const authorSelect = () => {
     </select>
 `
 }
-//// export const topicRadioButton = () => {
-////     const topics = getTopics()
-////     return topics.map((topic) => {
-////         return `<li class="topic">
-////         <input type="radio" name="topicChoice" value="${topic.id}"/> ${topic.category}
-////         </li>`
-////     }).join("")
-//// }
+
 export const topicCheckboxes = () => {
     const topics = getTopics()
     return topics.map(topic => {

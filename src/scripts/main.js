@@ -1,12 +1,16 @@
-import { fetchData } from "./dataAccess.js";
+import { fetchLetters, fetchLetterTopics, fetchPenPals, fetchTopics } from "./dataAccess.js";
 import { PenPalSociety } from "./PenPalSociety.js";
 
 const container = document.querySelector(".container")
 
 const render = () => {
-    fetchData().then(
-        () => container.innerHTML = PenPalSociety()
-    )
+    fetchTopics()
+        .then(() => fetchPenPals())
+        .then(() => fetchLetters())
+        .then(() => fetchLetterTopics())
+        .then(
+            () => container.innerHTML = PenPalSociety()
+        )
 }
 
 render()

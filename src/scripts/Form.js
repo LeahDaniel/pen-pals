@@ -13,7 +13,6 @@ document.addEventListener("click", click => {
     }  
 })               
 
-
 //captures user input and creates new letter object
 const createLetterObject = () => {
     //capture current value of all input fields
@@ -21,7 +20,6 @@ const createLetterObject = () => {
     const recipientInput = document.querySelector("#recipient").value
     const textInput = document.querySelector("#letterBody").value
     const dateInput = new Date()
-    //// const topicInput = document.querySelector("input[name='topicChoice']:checked").value
 
     //add the captured values to key-value pairs in an object
     const letterObj = {
@@ -33,9 +31,10 @@ const createLetterObject = () => {
 
     return letterObj
 }
-//captures user input and creates new letterTopic object, then posts to API
-export const getCheckedBoxes = () => {
-    //capture the values of each topic selected and push to an array
+
+//capture the values of each topic selected and pushes to an array
+//! Would it be best to create a set/array for this in my application state?- yes in order to prepare for React, but this solution works for this project.
+export const getCheckedIds = () => {
     const checkboxes = document.getElementsByName("topicCheckbox")
     let checkedArray = []
 
@@ -49,10 +48,8 @@ export const getCheckedBoxes = () => {
     }
 }
 
-
 //renders form HTML using interpolated formFields functions
 export const Form = () => {
-
     return `
         <div class="field">
             <label class="label" for="authorSelect">Author</label>
@@ -73,7 +70,6 @@ export const Form = () => {
     
         <button id="sendButton">Send Letter</button>
         `
-
 }
 
 
